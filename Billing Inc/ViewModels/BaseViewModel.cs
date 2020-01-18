@@ -26,6 +26,10 @@ namespace Billing_Inc.ViewModels
                     return new SolidColorBrush(Colors.Red);
                 }
             }
+            set
+            {
+                OnPropertyChanged("ConState");
+            }
 
         }
 
@@ -41,6 +45,10 @@ namespace Billing_Inc.ViewModels
                 {
                     return "Status: Unavailable";
                 }
+            }
+            set
+            {
+                OnPropertyChanged("ConStatus");
             }
         }
 

@@ -14,9 +14,36 @@ namespace Billing_Inc.ViewModels
 {
     public class InvoicesViewModel : BaseViewModel
     {
+        Invoice invoice;
+        Command deleteCommand;
         public ICollectionView DataGridSource { get; set; }
 
-        
+        public Command DeleteCommand
+        {
+            get
+            {
+                return deleteCommand ??
+                    (deleteCommand = new Command(d =>
+                    {
+                        Db.Invoices.Remove(invoice);
+                        Db.SaveChanges();
+                    }));
+            }
+
+        }
+
+        public Invoice SelectedInvoice
+        {
+            get
+            {
+                return invoice;
+            }
+            set
+            {
+                invoice = value;
+                OnPropertyChanged("SelectedInvoice");
+            }
+        }
         
 
         public InvoicesViewModel()

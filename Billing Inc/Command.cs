@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Billing_Inc
 {
-    class Command : ICommand
+    public class Command : ICommand
     {
         private Action<object> execute;
         private Func<object, bool> canExecute;
