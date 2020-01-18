@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Billing_Inc.ViewModels
 {
-    public class CreateInvoiceViewModel
+    public class CreateInvoiceViewModel : BaseViewModel
     {
     }
 }

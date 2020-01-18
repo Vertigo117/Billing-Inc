@@ -8,24 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
+using System.Windows.Media;
 
 namespace Billing_Inc.ViewModels
 {
-    public class InvoicesViewModel : INotifyPropertyChanged
+    public class InvoicesViewModel : BaseViewModel
     {
-        InvoiceContext db = new InvoiceContext();
         public ICollectionView DataGridSource { get; set; }
+
+        
         
 
         public InvoicesViewModel()
         {
-            DataGridSource = CollectionViewSource.GetDefaultView(db.Invoices.ToList());
+            DataGridSource = CollectionViewSource.GetDefaultView(Db.Invoices.ToList());
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged(string prop)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
+        
     }
 }

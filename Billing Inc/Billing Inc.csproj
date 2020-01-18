@@ -66,6 +66,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Command.cs" />
+    <Compile Include="Connection.cs" />
     <Compile Include="Migrations\202001181507234_init.cs" />
     <Compile Include="Migrations\202001181507234_init.Designer.cs">
       <DependentUpon>202001181507234_init.cs</DependentUpon>
@@ -74,6 +75,7 @@
     <Compile Include="Models\BillingDbInitializer.cs" />
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\InvoiceContext.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CreateInvoiceViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\InvoicesViewModel.cs" />

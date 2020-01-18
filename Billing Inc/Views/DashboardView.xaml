@@ -12,5 +12,6 @@
             <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="textBlockHeader" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25">Dashboard</TextBlock>
+        <TextBlock Grid.Row="1" Text="{Binding TotalInvoices}"/>
     </Grid>
 </UserControl>
