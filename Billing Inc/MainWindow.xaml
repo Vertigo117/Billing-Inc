@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Billing_Inc"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="textBlockHeader" Grid.Column="1" FontSize="25" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center">Billing Inc.</TextBlock>
+        <Button x:Name="btnDashboard" Grid.Row="1" Margin="2">Dashboard</Button>
+        <Button x:Name="btnCreate" Grid.Row="1" Grid.Column="1" Margin="2">Create new Inboice</Button>
+        <Button x:Name="btnInvoices" Grid.Row="1" Grid.Column="2" Margin="2">Invoices</Button>
+        <ContentControl Grid.Row="2" Grid.ColumnSpan="3"></ContentControl>
+        <Ellipse HorizontalAlignment="Left" Grid.Row="3" Width="10" Height="10" Stroke="Black"/>
     </Grid>
 </Window>
