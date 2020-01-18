@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Billing_Inc.ViewModels;
+using System.Data.Entity;
+using Billing_Inc.Models;
 
 namespace Billing_Inc
 {
@@ -25,6 +27,7 @@ namespace Billing_Inc
         {
             InitializeComponent();
             DataContext = new DashboardViewModel();
+            Database.SetInitializer(new BillingDbInitializer());
         }
 
         private void btnDashboard_Click(object sender, RoutedEventArgs e)
