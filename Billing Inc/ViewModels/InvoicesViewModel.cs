@@ -7,18 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
 
 namespace Billing_Inc.ViewModels
 {
     public class InvoicesViewModel : INotifyPropertyChanged
     {
         InvoiceContext db = new InvoiceContext();
-        BindingList<Invoice> DataGridSource { get; set; }
+        public ICollectionView DataGridSource { get; set; }
         
 
         public InvoicesViewModel()
         {
-            IEnumerable<Invoice> invoices = db.Invoices.ToList();
+            DataGridSource = CollectionViewSource.GetDefaultView(db.Invoices.ToList());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

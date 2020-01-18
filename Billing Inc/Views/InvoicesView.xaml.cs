@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Billing_Inc.ViewModels;
 
 namespace Billing_Inc.Views
 {
@@ -21,6 +22,7 @@ namespace Billing_Inc.Views
     /// </summary>
     public partial class InvoicesView : UserControl
     {
+        InvoiceContext db = new InvoiceContext();
         public InvoicesView()
         {
             InitializeComponent();
