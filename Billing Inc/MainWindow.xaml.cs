@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Billing_Inc.ViewModels;
 
 namespace Billing_Inc
 {
@@ -23,6 +24,22 @@ namespace Billing_Inc
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new DashboardViewModel();
+        }
+
+        private void btnDashboard_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new DashboardViewModel();
+        }
+
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new CreateInvoiceViewModel();
+        }
+
+        private void btnInvoices_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new InvoicesViewModel();
         }
     }
 }

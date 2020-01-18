@@ -4,8 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Billing_Inc"
+        xmlns:viewmodels="clr-namespace:Billing_Inc.ViewModels"
+        xmlns:views="clr-namespace:Billing_Inc.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
+    <Window.Resources>
+        <DataTemplate x:Name="dashboardTemplate" DataType="{x:Type viewmodels:DashboardViewModel}">
+            <views:DashboardView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="createInvoiceTemplate" DataType="{x:Type viewmodels:CreateInvoiceViewModel}">
+            <views:CreateInvoiceView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="invoicesTemplate" DataType="{x:Type viewmodels:InvoicesViewModel}">
+            <views:InvoicesView DataContext="{Binding}"/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
@@ -19,10 +32,13 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock x:Name="textBlockHeader" Grid.Column="1" FontSize="25" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center">Billing Inc.</TextBlock>
-        <Button x:Name="btnDashboard" Grid.Row="1" Margin="2">Dashboard</Button>
-        <Button x:Name="btnCreate" Grid.Row="1" Grid.Column="1" Margin="2">Create new Inboice</Button>
-        <Button x:Name="btnInvoices" Grid.Row="1" Grid.Column="2" Margin="2">Invoices</Button>
-        <ContentControl Grid.Row="2" Grid.ColumnSpan="3"></ContentControl>
-        <Ellipse HorizontalAlignment="Left" Grid.Row="3" Width="10" Height="10" Stroke="Black"/>
+        <Button x:Name="btnDashboard" Grid.Row="1" Margin="2" Click="btnDashboard_Click">Dashboard</Button>
+        <Button x:Name="btnCreate" Grid.Row="1" Grid.Column="1" Margin="2" Click="btnCreate_Click">Create new Inboice</Button>
+        <Button x:Name="btnInvoices" Grid.Row="1" Grid.Column="2" Margin="2" Click="btnInvoices_Click">Invoices</Button>
+        <ContentControl Content="{Binding}" Grid.Row="2" Grid.ColumnSpan="3"/>
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <Ellipse Margin="0,0,5,0" Grid.Row="3" Width="10" Height="10" Stroke="Black"/>
+            <TextBlock x:Name="textBlockStatus" Grid.Row="3" Text="Status:"/>
+        </StackPanel>
     </Grid>
 </Window>
