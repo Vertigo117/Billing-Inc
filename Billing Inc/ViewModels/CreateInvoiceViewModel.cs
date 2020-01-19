@@ -94,8 +94,18 @@ namespace Billing_Inc.ViewModels
                     {
                         try
                         {
-                            Db.Invoices.Add(new Invoice { Amount = amount, BillTo = billTo, Description = description, InvoiceDate = invoiceDate, UnitPrice = unitPrice });
+                            Invoice invoice = new Invoice()
+                            {
+                                Amount = amount,
+                                BillTo = billTo,
+                                Description = description,
+                                InvoiceDate = invoiceDate,
+                                UnitPrice = unitPrice
+                            };
+
+                            Db.Invoices.Add(invoice);
                             Db.SaveChanges();
+                            MessageBox.Show("New invoice added");
                         }
                         catch(Exception ex)
                         {

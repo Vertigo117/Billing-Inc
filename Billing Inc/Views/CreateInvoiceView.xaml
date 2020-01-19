@@ -54,7 +54,7 @@
                 <TextBlock>Invoice Date</TextBlock>
                 <DatePicker SelectedDate="{Binding InvoiceDate}"/>
             </StackPanel>
-            <Button Command="{Binding CreateCommand}" Margin="20" Grid.Column="1" Grid.Row="2">Create</Button>
+            <Button Command="{Binding CreateCommand}" Margin="10" Grid.Column="1" Grid.Row="2">Create</Button>
             <Grid Margin="20,0,0,0" VerticalAlignment="Center" Grid.Column="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="4*"/>
