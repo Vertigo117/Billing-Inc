@@ -12,7 +12,7 @@
             <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="textBlockHeader" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25">Invoices</TextBlock>
-        <DataGrid SelectedItem="{Binding SelectedInvoice, Mode=TwoWay}" BorderBrush="Transparent" Background="Transparent" ItemsSource="{Binding DataGridSource}" x:Name="dataGridInvoices" Grid.Row="1" AutoGenerateColumns="False">
+        <DataGrid IsReadOnly="True" SelectedItem="{Binding SelectedInvoice, Mode=TwoWay}" BorderBrush="Transparent" Background="Transparent" ItemsSource="{Binding DataGridSource}" x:Name="dataGridInvoices" Grid.Row="1" AutoGenerateColumns="False">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="FontWeight" Value="Bold" />
