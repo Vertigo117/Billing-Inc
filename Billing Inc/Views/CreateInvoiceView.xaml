@@ -36,25 +36,25 @@
             </Grid.RowDefinitions>
             <StackPanel VerticalAlignment="Center">
                 <TextBlock>Description</TextBlock>
-                <TextBox/>
+                <TextBox Text="{Binding Description}"/>
             </StackPanel>
             <StackPanel Grid.Row="1" VerticalAlignment="Center">
                 <TextBlock>Unit Price</TextBlock>
-                <TextBox/>
+                <TextBox Text="{Binding UnitPrice}"/>
             </StackPanel>
             <StackPanel Grid.Row="2" VerticalAlignment="Center">
                 <TextBlock>Bill To</TextBlock>
-                <TextBox/>
+                <TextBox Text="{Binding BillTo}"/>
             </StackPanel>
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
                 <TextBlock>Amount</TextBlock>
-                <TextBox/>
+                <TextBox Text="{Binding Amount}"/>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
-                <TextBlock>Amount</TextBlock>
-                <DatePicker/>
+                <TextBlock>Invoice Date</TextBlock>
+                <DatePicker SelectedDate="{Binding InvoiceDate}"/>
             </StackPanel>
-            <Button Margin="20" Grid.Column="1" Grid.Row="2">Create</Button>
+            <Button Command="{Binding CreateCommand}" Margin="20" Grid.Column="1" Grid.Row="2">Create</Button>
             <Grid Margin="20,0,0,0" VerticalAlignment="Center" Grid.Column="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="4*"/>
