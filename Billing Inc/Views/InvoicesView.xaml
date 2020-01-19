@@ -12,7 +12,7 @@
             <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="textBlockHeader" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25">Invoices</TextBlock>
-        <DataGrid ColumnWidth="*" SelectedItem="{Binding SelectedInvoice, Mode=TwoWay}" BorderBrush="Transparent" Background="Transparent" ItemsSource="{Binding DataGridSource}" x:Name="dataGridInvoices" Grid.Row="1" AutoGenerateColumns="False">
+        <DataGrid SelectedItem="{Binding SelectedInvoice, Mode=TwoWay}" BorderBrush="Transparent" Background="Transparent" ItemsSource="{Binding DataGridSource}" x:Name="dataGridInvoices" Grid.Row="1" AutoGenerateColumns="False">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="FontWeight" Value="Bold" />
@@ -21,8 +21,8 @@
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="Id"/>
-                <DataGridTextColumn Binding="{Binding BillTo}" Header="Bill To"/>
-                <DataGridTextColumn Binding="{Binding Description}" Header="Description"/>
+                <DataGridTextColumn Width="*" Binding="{Binding BillTo}" Header="Bill To"/>
+                <DataGridTextColumn Width="*" Binding="{Binding Description}" Header="Description"/>
                 <DataGridTextColumn Binding="{Binding UnitPrice}" Header="Unit Price"/>
                 <DataGridTextColumn Binding="{Binding Amount}" Header="Amount"/>
                 <DataGridTextColumn Binding="{Binding InvoiceDate}" Header="Invoice Date"/>
