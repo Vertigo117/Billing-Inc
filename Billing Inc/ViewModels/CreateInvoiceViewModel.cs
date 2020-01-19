@@ -7,6 +7,7 @@ using Billing_Inc.Models;
 using Microsoft.Win32;
 using System.IO;
 using System.Windows;
+using System.Text.RegularExpressions;
 
 namespace Billing_Inc.ViewModels
 {
@@ -20,6 +21,7 @@ namespace Billing_Inc.ViewModels
         OpenFileDialog openFileDialog;
         string filePath;
         string filePathText;
+        Regex regex;
 
         Command createCommand;
         Command openFileCommand;
@@ -30,6 +32,7 @@ namespace Billing_Inc.ViewModels
             invoiceDate = DateTime.Now;
             filePath = "-";
             filePathText = "File: ";
+            regex = new Regex("^[0-9]*$");
         }
 
         public Command LoadFromFileCommand
@@ -89,8 +92,15 @@ namespace Billing_Inc.ViewModels
                 return createCommand ??
                     (createCommand = new Command(command =>
                     {
-                        Db.Invoices.Add(new Invoice { Amount = amount, BillTo = billTo, Description = description, InvoiceDate = invoiceDate, UnitPrice = unitPrice });
-                        Db.SaveChanges();
+                        try
+                        {
+                            Db.Invoices.Add(new Invoice { Amount = amount, BillTo = billTo, Description = description, InvoiceDate = invoiceDate, UnitPrice = unitPrice });
+                            Db.SaveChanges();
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                     }));
             }
         }
@@ -116,8 +126,17 @@ namespace Billing_Inc.ViewModels
             }
             set
             {
-                unitPrice = Convert.ToDouble(value);
-                OnPropertyChanged("UnitPrice");
+                
+                if(regex.IsMatch(value))
+                {
+                    unitPrice = Convert.ToDouble(value);
+                    OnPropertyChanged("UnitPrice");
+                }
+                else
+                {
+                    MessageBox.Show("Only numeric characters are allowed!");
+                }
+                
             }
         }
 
@@ -142,8 +161,15 @@ namespace Billing_Inc.ViewModels
             }
             set
             {
-                amount = Convert.ToInt32(value);
-                OnPropertyChanged("Amount");
+                if(regex.IsMatch(value))
+                {
+                    amount = Convert.ToInt32(value);
+                    OnPropertyChanged("Amount");
+                }
+                else
+                {
+                    MessageBox.Show("Only numeric characters are allowed!");
+                }
             }
         }
 
