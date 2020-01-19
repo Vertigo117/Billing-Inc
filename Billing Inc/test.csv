@@ -1,0 +1,4 @@
+Id;BillTo;Description;UnitPrice;Amount;InvoiceDate
+5;Sean Price;Some Description;200;20;22.05.2020
+6;John Williams;Some Description;250;12;22.02.2020
+7;Frank Frankson;Some Description;256;25;15.06.2020

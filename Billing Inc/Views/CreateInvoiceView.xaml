@@ -67,7 +67,7 @@
                 </Grid.RowDefinitions>
                 <Button Command="{Binding OpenFileCommand}" VerticalAlignment="Center">Select file</Button>
                 <Button Command="{Binding LoadFromFileCommand}" Grid.Column="2" VerticalAlignment="Center">Upload</Button>
-                <TextBlock Grid.ColumnSpan="2" Text="{Binding FilePath}" Grid.Row="1"/>
+                <TextBlock TextWrapping="Wrap" Grid.ColumnSpan="3" Text="{Binding FilePath}" Grid.Row="1"/>
             </Grid>
         </Grid>
     </Grid>

@@ -182,6 +182,8 @@ namespace Billing_Inc.ViewModels
                     Db.SaveChanges();
                 }
             });
+
+            MessageBox.Show("DataFile was sucsessfully uploaded!");
         }
     }
 }
