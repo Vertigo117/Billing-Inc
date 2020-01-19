@@ -12,7 +12,13 @@
             <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="textBlockHeader" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25">Invoices</TextBlock>
-        <DataGrid SelectedItem="{Binding SelectedInvoice}" BorderBrush="Transparent" Background="Transparent" ItemsSource="{Binding DataGridSource}" x:Name="dataGridInvoices" Grid.Row="1" AutoGenerateColumns="False" ColumnWidth="*">
+        <DataGrid ColumnWidth="*" SelectedItem="{Binding SelectedInvoice, Mode=TwoWay}" BorderBrush="Transparent" Background="Transparent" ItemsSource="{Binding DataGridSource}" x:Name="dataGridInvoices" Grid.Row="1" AutoGenerateColumns="False">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="Id"/>
                 <DataGridTextColumn Binding="{Binding BillTo}" Header="Bill To"/>
@@ -23,7 +29,7 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Command="{Binding DeleteCommand}">Remove</Button>
+                            <Button Content="Remove" Command="{Binding Path=DataContext.RemoveCommand,RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

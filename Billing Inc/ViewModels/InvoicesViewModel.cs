@@ -15,18 +15,32 @@ namespace Billing_Inc.ViewModels
     public class InvoicesViewModel : BaseViewModel
     {
         Invoice invoice;
-        Command deleteCommand;
-        public ICollectionView DataGridSource { get; set; }
-
-        public Command DeleteCommand
+        Command removeCommand;
+        BindingList<Invoice> datagridSource;
+        public BindingList<Invoice> DataGridSource
         {
             get
             {
-                return deleteCommand ??
-                    (deleteCommand = new Command(d =>
+                return datagridSource;
+            }
+            set
+            {
+                datagridSource = value;
+                OnPropertyChanged("DataGridSource");
+            }
+        }
+
+        public Command RemoveCommand
+        {
+            get
+            {
+                return removeCommand ??
+                    (removeCommand = new Command(d =>
                     {
                         Db.Invoices.Remove(invoice);
                         Db.SaveChanges();
+                        datagridSource.Remove(invoice);
+                        OnPropertyChanged("DataGridSource");
                     }));
             }
 
@@ -45,10 +59,9 @@ namespace Billing_Inc.ViewModels
             }
         }
         
-
         public InvoicesViewModel()
         {
-            DataGridSource = CollectionViewSource.GetDefaultView(Db.Invoices.ToList());
+            datagridSource = new BindingList<Invoice>(Db.Invoices.ToList());
         }
 
         
