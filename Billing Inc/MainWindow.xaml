@@ -32,9 +32,24 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock x:Name="textBlockHeader" Grid.Column="1" FontSize="25" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center">Billing Inc.</TextBlock>
-        <Button x:Name="btnDashboard" Grid.Row="1" Margin="2" Click="btnDashboard_Click">Dashboard</Button>
-        <Button x:Name="btnCreate" Grid.Row="1" Grid.Column="1" Margin="2" Click="btnCreate_Click">Create new Inboice</Button>
-        <Button x:Name="btnInvoices" Grid.Row="1" Grid.Column="2" Margin="2" Click="btnInvoices_Click">Invoices</Button>
+        <Button  x:Name="btnDashboard" Grid.Row="1" Margin="2" Click="btnDashboard_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="0,0,10,0" Stretch="Uniform" Height="50" Source="Icons/dashboard.png"/>
+                <TextBlock VerticalAlignment="Center">Dashboard</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btnCreate" Grid.Row="1" Grid.Column="1" Margin="2" Click="btnCreate_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="0,0,10,0" Stretch="Uniform" Height="50" Source="Icons/addfile.png"/>
+                <TextBlock VerticalAlignment="Center">Create new invoice</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btnInvoices" Grid.Row="1" Grid.Column="2" Margin="2" Click="btnInvoices_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="0,0,10,0" Stretch="Uniform" Height="50" Source="Icons/document.png"/>
+                <TextBlock VerticalAlignment="Center">Invoices</TextBlock>
+            </StackPanel>
+        </Button>
         <ContentControl Content="{Binding}" Grid.Row="2" Grid.ColumnSpan="3"/>
         <StackPanel Grid.Row="3" Orientation="Horizontal">
             <Ellipse Fill="{Binding ConState}" Margin="0,0,5,0" Grid.Row="3" Width="10" Height="10" Stroke="Black"/>
