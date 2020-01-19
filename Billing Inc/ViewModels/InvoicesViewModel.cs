@@ -37,10 +37,13 @@ namespace Billing_Inc.ViewModels
                 return removeCommand ??
                     (removeCommand = new Command(d =>
                     {
-                        Db.Invoices.Remove(invoice);
-                        Db.SaveChanges();
-                        datagridSource.Remove(invoice);
-                        OnPropertyChanged("DataGridSource");
+                        if(invoice!=null)
+                        {
+                            Db.Invoices.Remove(invoice);
+                            Db.SaveChanges();
+                            datagridSource.Remove(invoice);
+                            OnPropertyChanged("DataGridSource");
+                        }
                     }));
             }
 
