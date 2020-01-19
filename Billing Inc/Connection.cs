@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,16 @@ namespace Billing_Inc
 
         public Connection(InvoiceContext db)
         {
-            Status = db.Database.Exists();
+            try
+            {
+                db.Database.Connection.Open();
+                db.Database.Connection.Close();
+            }
+            catch(SqlException)
+            {
+                Status = false;
+            }
+            Status = true;
         }
     }
 }
